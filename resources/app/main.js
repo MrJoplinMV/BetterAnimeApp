@@ -71,31 +71,24 @@ app.on('activate', () => {
 });
 
 // Recebe o resultado da verificação do site e define a segurança da sessão.
-
 ipcMain.on('SiteAtivo', (event, isSiteAtivo) => {
   if (isSiteAtivo) {
     // sessão válida (InSession)
     // Coloque aqui a lógica para lidar com a sessão em andamento.
     defineInSession();
-
-  }
-
-  else {
+  } else {
     // Sessão inválida (OutSession)
     // Coloque aqui a lógica para lidar com a sessão que não está em andamento.
     defineOutSession();
   }
 });
 
-
 // Definindo ações para o InSession.
-
 function defineInSession() {
-  console.log('InSession: Sessão Válida, recursos acessíveis.')
+  console.log('InSession: Sessão Válida, recursos acessíveis.');
 }
 
 // Definindo ações para o OutSession.
-
 function defineOutSession() {
-  console.log('OutSession: Sessão Inválida, recursos restritos.')
+  console.log('OutSession: Sessão Inválida, recursos restritos.');
 }
