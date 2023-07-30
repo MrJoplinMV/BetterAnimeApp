@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 const windowStateKeeper = require('electron-window-state');
 const { session } = require('electron');
@@ -69,3 +69,33 @@ app.on('activate', () => {
     createWindow();
   }
 });
+
+// Recebe o resultado da verificação do site e define a segurança da sessão.
+
+ipcMain.on('SiteAtivo', (event, isSiteAtivo) => {
+  if (isSiteAtivo) {
+    // sessão válida (InSession)
+    // Coloque aqui a lógica para lidar com a sessão em andamento.
+    defineInSession();
+
+  }
+
+  else {
+    // Sessão inválida (OutSession)
+    // Coloque aqui a lógica para lidar com a sessão que não está em andamento.
+    defineOutSession();
+  }
+});
+
+
+// Definindo ações para o InSession.
+
+function defineInSession() {
+  console.log('InSession: Sessão Válida, recursos acessíveis.')
+}
+
+// Definindo ações para o OutSession.
+
+function defineOutSession() {
+  console.log('OutSession: Sessão Inválida, recursos restritos.')
+}
