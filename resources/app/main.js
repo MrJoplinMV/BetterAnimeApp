@@ -19,7 +19,7 @@ const createWindow = async () => {
     minHeight: 600,
     icon: path.join(__dirname, 'image', 'better@1x.ico'),
     webPreferences: {
-      contextIsolation: false,
+      contextIsolation: true,
       preload: path.join(__dirname, 'preload.js'),
     }
   });
