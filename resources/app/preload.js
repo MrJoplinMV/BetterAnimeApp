@@ -9,6 +9,11 @@ function isSiteAtivo() {
 
     return true; // Exemplo considerando o site sempre ativo.
 
+function isInativo() {
+    // Aqui podemos adicionar a lógica para verificar se o site está inativo.
+    return false;
+}
+
 }
 
 // Envie o resultado para o processo principal
