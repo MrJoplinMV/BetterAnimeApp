@@ -3,6 +3,7 @@ const path = require('path');
 const windowStateKeeper = require('electron-window-state');
 const { session } = require('electron');
 const { ElectronBlocker, fullLists } = require('@cliqz/adblocker-electron');
+const localShortcut = require('electron-localshortcut');
 
 const createWindow = async () => {
   const mainWindowState = windowStateKeeper({
@@ -50,6 +51,11 @@ const createWindow = async () => {
   });
 
   blocker.enableBlockingInSession(mainWindow.webContents.session);
+
+  localShortcut.register(mainWindow, 'F5', () => {
+    mainWindow.reload();
+  });
+
 };
 
 if (require('electron-squirrel-startup')) {
@@ -70,25 +76,22 @@ app.on('activate', () => {
   }
 });
 
-// Recebe o resultado da verificação do site e define a segurança da sessão.
 ipcMain.on('SiteAtivo', (event, isSiteAtivo) => {
   if (isSiteAtivo) {
-    // sessão válida (InSession)
-    // Coloque aqui a lógica para lidar com a sessão em andamento.
+
     defineInSession();
+
   } else {
-    // Sessão inválida (OutSession)
-    // Coloque aqui a lógica para lidar com a sessão que não está em andamento.
+
     defineOutSession();
+
   }
 });
 
-// Definindo ações para o InSession.
 function defineInSession() {
   console.log('InSession: Sessão Válida, recursos acessíveis.');
 }
 
-// Definindo ações para o OutSession.
 function defineOutSession() {
   console.log('OutSession: Sessão Inválida, recursos restritos.');
 }
