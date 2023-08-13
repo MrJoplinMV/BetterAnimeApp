@@ -44,7 +44,7 @@ Além das funcionalidades acima, há alguns detalhes adicionais no código:
 
 1. Clone ou baixe o repositório contendo o código-fonte.
 2. Navegue para o diretório do projeto.
-3. Extraia o .exe contido no arquivo zipado e depois execute-o na pasta raiz do projeto.
+3. Execute o .exe na pasta raiz do projeto.
 4. Se divirta vendo seus animes.
 
 **Observação:** Certifique-se de ter uma conexão com a internet ao executar o aplicativo, pois ele carregará a página "https://betteranime.net/login". Além disso, o aplicativo bloqueará anúncios nessa página usando o módulo de bloqueio de anúncios.
