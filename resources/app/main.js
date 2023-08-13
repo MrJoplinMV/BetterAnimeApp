@@ -1,7 +1,6 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 const windowStateKeeper = require('electron-window-state');
-const { session } = require('electron');
 const { ElectronBlocker, fullLists } = require('@cliqz/adblocker-electron');
 const localShortcut = require('electron-localshortcut');
 
@@ -35,15 +34,6 @@ const createWindow = async () => {
 
   mainWindow.on('closed', () => {
     app.quit();
-  });
-
-  mainWindow.on('minimize', () => {
-  });
-
-  mainWindow.on('maximize', () => {
-  });
-
-  mainWindow.on('restore', () => {
   });
 
   const blocker = await ElectronBlocker.fromLists(fetch, fullLists, {
