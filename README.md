@@ -38,7 +38,6 @@ Além das funcionalidades acima, há alguns detalhes adicionais no código:
 
 - O código contém uma verificação para `electron-squirrel-startup`, que é uma biblioteca utilizada para a instalação de aplicativos Electron.
 - O aplicativo é iniciado chamando a função `createWindow()` no evento 'ready' do aplicativo.
-- O código define funções vazias para os eventos 'minimize', 'maximize' e 'restore', mas esses eventos não têm nenhuma funcionalidade associada a eles no código fornecido.
 
 ## Como Executar o Aplicativo
 
